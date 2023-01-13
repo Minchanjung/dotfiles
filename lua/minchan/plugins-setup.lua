@@ -27,10 +27,17 @@ end
 
 return packer.startup(function(use)
   use("wbthomason/packer.nvim")
-
+  
+  use("nvim-lua/plenary.nvim")
+  
   use("morhetz/gruvbox") --current colorscheme
+  use("kyazdani42/nvim-web-devicons")
+  
+  use("nvim-lualine/lualine.nvim")
 
-
+  --fuzzy finder
+  use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+  use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" })
 
   if packer_bootstrap then
     require("packer").sync()
