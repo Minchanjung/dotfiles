@@ -35,9 +35,27 @@ return packer.startup(function(use)
   
   use("nvim-lualine/lualine.nvim")
 
+  --autocompletion
+  use("hrsh7th/nvim-cmp")
+  use("hrsh7th/cmp-buffer")
+  use("hrsh7th/cmp-path")
+  
+  --snippets
+  use("L3MON4D3/LuaSnip")
+
+    
   --fuzzy finder
   use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
   use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" })
+
+
+  --lsp servers
+  use("williamboman/mason.nvim")
+  use("williamboman/mason-lspconfig.nvim")
+  use("neovim/nvim-lspconfig")
+  use("hrsh7th/cmp-nvim-lsp")
+  use({ "glepnir/lspsaga.nvim", branch = "main" })
+  use("onsails/lspkind.nvim")
 
   if packer_bootstrap then
     require("packer").sync()
