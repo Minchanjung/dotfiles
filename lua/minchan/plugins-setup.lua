@@ -57,6 +57,16 @@ return packer.startup(function(use)
   use({ "glepnir/lspsaga.nvim", branch = "main" })
   use("onsails/lspkind.nvim")
 
+  use({
+    "nvim-treesitter/nvim-treesitter", 
+    run = function() 
+      require("nvim-treesitter.install").update({ with_sync = true })
+    end,
+  })
+
+  use("windwp/nvim-autopairs")
+  use("windwp/nvim-ts-autotag")
+
   if packer_bootstrap then
     require("packer").sync()
   end
